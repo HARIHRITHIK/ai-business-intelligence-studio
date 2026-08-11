@@ -57,7 +57,10 @@ def health_check():
 
 
 # Serve React build as static files (production)
-frontend_dist = os.path.join(os.path.dirname(__file__), "../frontend/dist")
+backend_dir = os.path.dirname(__file__)
+frontend_dist = os.path.join(backend_dir, "dist")
+if not os.path.exists(frontend_dist):
+    frontend_dist = os.path.join(backend_dir, "../frontend/dist")
 frontend_dist = os.path.normpath(frontend_dist)
 
 if os.path.exists(frontend_dist):
