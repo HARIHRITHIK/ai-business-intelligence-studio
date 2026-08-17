@@ -60,29 +60,21 @@ export default function InsightsList({ insights = [], loading }) {
                 <p style={{ color: 'var(--text-secondary)', fontSize: '0.95rem', lineHeight: 1.5, marginBottom: '0.75rem' }}>
                   {insight.explanation}
                 </p>
-                {insight.implication && (
-                  <p style={{ color: 'var(--text-muted)', fontSize: '0.85rem', fontStyle: 'italic' }}>
-                    Business Implication: {insight.implication}
+                {(insight.business_implication || insight.implication) && (
+                  <p style={{ color: 'var(--text-muted)', fontSize: '0.875rem', fontStyle: 'italic', borderLeft: '2px solid rgba(255,255,255,0.1)', paddingLeft: '0.75rem', marginTop: '0.5rem' }}>
+                    💡 <strong style={{ color: 'var(--text-secondary)', fontStyle: 'normal' }}>Strategic Takeaway:</strong> {insight.business_implication || insight.implication}
                   </p>
                 )}
               </div>
               
-              {insight.chartData && (
-                <button 
-                  className="btn btn-secondary" 
-                  style={{ padding: '0.5rem 1rem', fontSize: '0.875rem' }}
-                  onClick={() => setExpandedId(expandedId === idx ? null : idx)}
-                >
-                  {expandedId === idx ? 'Hide Evidence' : 'Show Evidence →'}
-                </button>
-              )}
+              <button 
+                className="btn btn-ghost" 
+                style={{ padding: '0.4rem 0.8rem', fontSize: '0.8rem', color: 'var(--accent-blue)', whiteSpace: 'nowrap' }}
+                onClick={() => document.getElementById('supporting-evidence')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                View Evidence ↓
+              </button>
             </div>
-            
-            {expandedId === idx && insight.chartData && (
-              <div style={{ marginTop: '1.5rem', paddingTop: '1.5rem', borderTop: '1px solid var(--border)' }}>
-                <EvidenceChart chartData={insight.chartData} />
-              </div>
-            )}
           </div>
         ))}
       </div>

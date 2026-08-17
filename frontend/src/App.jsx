@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import LandingHero from './components/LandingHero';
 import TopFindings from './components/TopFindings';
 import DataOverview from './components/DataOverview';
@@ -18,6 +18,38 @@ function App() {
   const [filename, setFilename] = useState('');
 
   const analysis = useAnalysis();
+
+  useEffect(() => {
+    if (view !== 'results') return;
+
+    const sectionIds = [
+      'top-findings',
+      'data-overview',
+      'key-insights',
+      'supporting-evidence',
+      'recommendations',
+      'prediction-studio',
+      'export-report'
+    ];
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            setActiveSection(entry.target.id);
+          }
+        });
+      },
+      { rootMargin: '-20% 0px -60% 0px', threshold: 0 }
+    );
+
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, [view]);
 
   const handleUpload = async (file) => {
     analysis.resetAnalysis();
@@ -106,6 +138,7 @@ function App() {
               overview={analysis.overview} 
               prediction={analysis.prediction}
               loading={analysis.loading.prediction}
+              error={analysis.errors.prediction}
               onPredict={analysis.runPrediction}
             />
           </div>

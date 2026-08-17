@@ -11,10 +11,10 @@ class DataProfiler:
             if df[col].dtype == 'object' or isinstance(df[col].dtype, pd.CategoricalDtype):
                 # Check for datetime first
                 try:
-                    pd.to_datetime(df[col], errors='raise')
+                    pd.to_datetime(df[col], errors='raise', format='mixed')
                     roles[col] = 'datetime'
                     continue
-                except (ValueError, TypeError):
+                except Exception:
                     pass
                 
                 # Check if id
