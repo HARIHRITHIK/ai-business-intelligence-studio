@@ -477,21 +477,23 @@ class ReportGenerator:
         pdf.set_fill_color(8, 13, 26)
         pdf.rect(0, 0, 210, 70, style='F')
 
+        from fpdf.enums import XPos, YPos
+
         pdf.set_y(18)
         pdf.set_font('Helvetica', 'B', 9)
         pdf.set_text_color(125, 180, 250)
-        pdf.cell(0, 6, 'AI BUSINESS INTELLIGENCE STUDIO', align='C', ln=True)
+        pdf.cell(0, 6, 'AI BUSINESS INTELLIGENCE STUDIO', align='C', new_x=XPos.LMARGIN, new_y=YPos.NEXT)
 
         pdf.set_y(30)
         pdf.set_font('Helvetica', 'B', 24)
         pdf.set_text_color(241, 245, 249)
-        pdf.cell(0, 10, 'Intelligence Report', align='C', ln=True)
+        pdf.cell(0, 10, 'Intelligence Report', align='C', new_x=XPos.LMARGIN, new_y=YPos.NEXT)
 
         pdf.set_y(46)
         pdf.set_font('Helvetica', '', 10)
         pdf.set_text_color(148, 163, 184)
-        pdf.cell(0, 6, f'Dataset: {filename}    |    Generated: {now}', align='C', ln=True)
-        pdf.cell(0, 5, f'{profile.get("rows", 0):,} records  |  {profile.get("columns", 0)} columns  |  Quality Score: {profile.get("quality_score", 0)}/100', align='C', ln=True)
+        pdf.cell(0, 6, f'Dataset: {filename}    |    Generated: {now}', align='C', new_x=XPos.LMARGIN, new_y=YPos.NEXT)
+        pdf.cell(0, 5, f'{profile.get("rows", 0):,} records  |  {profile.get("columns", 0)} columns  |  Quality Score: {profile.get("quality_score", 0)}/100', align='C', new_x=XPos.LMARGIN, new_y=YPos.NEXT)
 
         pdf.set_y(78)
 
@@ -501,14 +503,14 @@ class ReportGenerator:
         def section_title(title: str, subtitle: str = ''):
             pdf.set_font('Helvetica', 'B', 14)
             pdf.set_text_color(15, 23, 42)
-            pdf.cell(0, 8, title, ln=True)
+            pdf.cell(0, 8, title, new_x=XPos.LMARGIN, new_y=YPos.NEXT)
             pdf.set_draw_color(226, 232, 240)
             pdf.line(pdf.get_x(), pdf.get_y(), pdf.get_x() + 170, pdf.get_y())
             pdf.ln(3)
             if subtitle:
                 pdf.set_font('Helvetica', '', 10)
                 pdf.set_text_color(100, 116, 139)
-                pdf.cell(0, 5, subtitle, ln=True)
+                pdf.cell(0, 5, subtitle, new_x=XPos.LMARGIN, new_y=YPos.NEXT)
             pdf.ln(4)
 
         def severity_color(sev: str):
@@ -540,11 +542,11 @@ class ReportGenerator:
             pdf.set_xy(x + 2, y + 2)
             pdf.set_font('Helvetica', '', 7)
             pdf.set_text_color(148, 163, 184)
-            pdf.cell(col_w - 7, 4, label.upper(), ln=True)
+            pdf.cell(col_w - 7, 4, label.upper(), new_x=XPos.LMARGIN, new_y=YPos.NEXT)
             pdf.set_xy(x + 2, y + 7)
             pdf.set_font('Helvetica', 'B', 12)
             pdf.set_text_color(15, 23, 42)
-            pdf.cell(col_w - 7, 6, value)
+            pdf.cell(col_w - 7, 6, value, new_x=XPos.RIGHT, new_y=YPos.TOP)
             pdf.set_xy(x + col_w, y)
 
         pdf.ln(22)
@@ -573,15 +575,14 @@ class ReportGenerator:
             pdf.set_font('Helvetica', 'B', 9)
             pdf.set_text_color(r, g, b)
             badge_text = severity_label(sev)
-            pdf.cell(30, 4, badge_text)
+            pdf.cell(30, 4, badge_text, new_x=XPos.RIGHT, new_y=YPos.TOP)
 
             # Headline
             pdf.set_xy(x + 6, y + 9)
             pdf.set_font('Helvetica', 'B', 11)
             pdf.set_text_color(15, 23, 42)
-            # Truncate headline if needed
             headline = c(insight.get('headline', ''))
-            pdf.cell(160, 5, headline[:90] + ('...' if len(headline) > 90 else ''), ln=False)
+            pdf.cell(160, 5, headline[:90] + ('...' if len(headline) > 90 else ''), new_x=XPos.RIGHT, new_y=YPos.TOP)
 
             # Explanation
             pdf.set_xy(x + 6, y + 16)
@@ -617,31 +618,31 @@ class ReportGenerator:
             pdf.set_xy(x + 3, y + 3)
             pdf.set_font('Helvetica', 'B', 18)
             pdf.set_text_color(226, 232, 240)
-            pdf.cell(10, 12, str(rec.get('rank', '')))
+            pdf.cell(10, 12, str(rec.get('rank', '')), new_x=XPos.RIGHT, new_y=YPos.TOP)
 
             # Impact badge
             pdf.set_xy(x + 17, y + 3)
             pdf.set_font('Helvetica', 'B', 7)
             pdf.set_text_color(ir, ig, ib)
-            pdf.cell(25, 4, f"{impact.upper()} IMPACT")
+            pdf.cell(25, 4, f"{impact.upper()} IMPACT", new_x=XPos.RIGHT, new_y=YPos.TOP)
 
             pdf.set_xy(x + 46, y + 3)
             pdf.set_text_color(29, 78, 216)
-            pdf.cell(40, 4, c(rec.get('category', '')).upper())
+            pdf.cell(40, 4, c(rec.get('category', '')).upper(), new_x=XPos.RIGHT, new_y=YPos.TOP)
 
             # Action
             pdf.set_xy(x + 17, y + 9)
             pdf.set_font('Helvetica', 'B', 10)
             pdf.set_text_color(15, 23, 42)
             action = c(rec.get('action', ''))
-            pdf.cell(150, 5, action[:85] + ('...' if len(action) > 85 else ''))
+            pdf.cell(150, 5, action[:85] + ('...' if len(action) > 85 else ''), new_x=XPos.RIGHT, new_y=YPos.TOP)
 
             # Rationale
             pdf.set_xy(x + 17, y + 16)
             pdf.set_font('Helvetica', '', 8)
             pdf.set_text_color(100, 116, 139)
             rationale = c(rec.get('rationale', ''))
-            pdf.cell(150, 4, rationale[:100] + ('...' if len(rationale) > 100 else ''))
+            pdf.cell(150, 4, rationale[:100] + ('...' if len(rationale) > 100 else ''), new_x=XPos.RIGHT, new_y=YPos.TOP)
 
             pdf.set_y(y + 29)
             pdf.ln(1)
@@ -673,19 +674,19 @@ class ReportGenerator:
             pdf.set_font('Helvetica', 'B', 10)
             pdf.set_text_color(15, 23, 42)
             headline = c(insight.get('headline', ''))
-            pdf.cell(160, 5, headline[:85] + ('...' if len(headline) > 85 else ''))
+            pdf.cell(160, 5, headline[:85] + ('...' if len(headline) > 85 else ''), new_x=XPos.RIGHT, new_y=YPos.TOP)
 
             pdf.set_xy(x + 6, y + 9)
             pdf.set_font('Helvetica', '', 8)
             pdf.set_text_color(71, 85, 105)
             explanation = c(insight.get('explanation', ''))
-            pdf.cell(160, 4, explanation[:120] + ('...' if len(explanation) > 120 else ''))
+            pdf.cell(160, 4, explanation[:120] + ('...' if len(explanation) > 120 else ''), new_x=XPos.RIGHT, new_y=YPos.TOP)
 
             pdf.set_xy(x + 6, y + 15)
             pdf.set_font('Helvetica', 'I', 8)
             pdf.set_text_color(100, 116, 139)
             implication = c(insight.get('business_implication', ''))
-            pdf.cell(160, 4, '-> ' + implication[:110] + ('...' if len(implication) > 110 else ''))
+            pdf.cell(160, 4, '-> ' + implication[:110] + ('...' if len(implication) > 110 else ''), new_x=XPos.RIGHT, new_y=YPos.TOP)
 
             pdf.set_y(y + 25)
             pdf.ln(1)
@@ -705,23 +706,19 @@ class ReportGenerator:
                     pdf.add_page()
                 png_bytes = self._render_chart_to_png(chart)
                 if png_bytes:
-                    # Save to temp file for fpdf
                     with tempfile.NamedTemporaryFile(suffix='.png', delete=False) as tmp:
                         tmp.write(png_bytes)
                         tmp_path = tmp.name
                     try:
-                        # Chart title
                         pdf.set_font('Helvetica', 'B', 10)
                         pdf.set_text_color(15, 23, 42)
-                        pdf.cell(0, 5, c(chart.get('title', '')), ln=True)
+                        pdf.cell(0, 5, c(chart.get('title', '')), new_x=XPos.LMARGIN, new_y=YPos.NEXT)
                         pdf.ln(2)
-                        # Chart image (scaled to fit page width)
                         pdf.image(tmp_path, x=pdf.get_x(), y=pdf.get_y(), w=170)
-                        pdf.ln(90)  # leave space for chart
-                        # Caption
+                        pdf.ln(90)
                         pdf.set_font('Helvetica', 'I', 8)
                         pdf.set_text_color(148, 163, 184)
-                        pdf.cell(0, 4, c(chart.get('caption', '')), align='C', ln=True)
+                        pdf.cell(0, 4, c(chart.get('caption', '')), align='C', new_x=XPos.LMARGIN, new_y=YPos.NEXT)
                         pdf.ln(6)
                     finally:
                         try:
@@ -738,10 +735,10 @@ class ReportGenerator:
             section_title('Prediction Studio Results')
             pdf.set_font('Helvetica', 'B', 11)
             pdf.set_text_color(15, 23, 42)
-            pdf.cell(0, 6, c(prediction.get('plain_english', '')), ln=True)
+            pdf.cell(0, 6, c(prediction.get('plain_english', '')), new_x=XPos.LMARGIN, new_y=YPos.NEXT)
             pdf.set_font('Helvetica', '', 9)
             pdf.set_text_color(100, 116, 139)
-            pdf.cell(0, 5, f"Analysis method: {c(prediction.get('best_model', ''))}   |   {c(prediction.get('metric_name', ''))}: {prediction.get('metric_value', 0) * 100:.0f}%", ln=True)
+            pdf.cell(0, 5, f"Analysis method: {c(prediction.get('best_model', ''))}   |   {c(prediction.get('metric_name', ''))}: {prediction.get('metric_value', 0) * 100:.0f}%", new_x=XPos.LMARGIN, new_y=YPos.NEXT)
 
         # ------------------------------------------------------------------
         # FOOTER ON LAST PAGE
@@ -752,6 +749,6 @@ class ReportGenerator:
         pdf.ln(4)
         pdf.set_font('Helvetica', '', 8)
         pdf.set_text_color(148, 163, 184)
-        pdf.cell(0, 4, f'Generated by BI Studio  |  {now}  |  Confidential', align='C', ln=True)
+        pdf.cell(0, 4, f'Generated by BI Studio  |  {now}  |  Confidential', align='C', new_x=XPos.LMARGIN, new_y=YPos.NEXT)
 
         return bytes(pdf.output())

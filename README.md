@@ -1,164 +1,198 @@
 # 📊 AI Business Intelligence Studio
 
-> **Transform raw business data into actionable executive intelligence through automated statistical analysis, natural language generation, and machine learning.**
+> **An automated AI Analyst platform that ingests raw tabular business data and surfaces executive-level statistical insights, machine learning driver analysis, and publication-ready PDF reports in seconds.**
 
-[![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=flat-square&logo=python&logoColor=white)](https://python.org)
-[![FastAPI](https://img.shields.io/badge/FastAPI-0.111.0-009688?style=flat-square&logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com)
-[![React](https://img.shields.io/badge/React-18.2.0-61DAFB?style=flat-square&logo=react&logoColor=black)](https://reactjs.org)
-[![Vite](https://img.shields.io/badge/Vite-5.0-646CFF?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev)
-[![License](https://img.shields.io/badge/License-MIT-green.style=flat-square)](LICENSE)
+<p align="center">
+  <a href="https://ai-business-intelligence-studio.onrender.com" target="_blank">
+    <img src="https://img.shields.io/badge/🌐_Live_Demo-ai--business--intelligence--studio.onrender.com-4f8ef7?style=for-the-badge" alt="Live Demo" />
+  </a>
+</p>
 
----
-
-## 💡 Overview
-
-**AI Business Intelligence Studio** is a production-grade full-stack web application designed as an **AI Analyst** rather than a static dashboard grid. 
-
-Instead of forcing stakeholders to interpret raw charts, the application ingests structured business datasets (CSV/Excel), executes automated statistical analysis, and immediately surfaces the **Top 3 Findings** alongside plain-English business implications, interactive visual evidence, strategic recommendations, and downloadable PDF reports.
-
----
-
-## ✨ Key Features
-
-- **🚀 Top Findings First**: Surfacing the 3 most statistically significant patterns immediately upon dataset upload.
-- **📈 Automated Statistical Engine**:
-  - **Time Series Trend Analysis**: Detects MoM/QoQ/YoY growth trajectories.
-  - **Z-Score Anomaly Detection**: Flags outliers exceeding $|z| > 3$ thresholds.
-  - **Segment Dominance Analysis**: Identifies disproportionate metric contributions across categories.
-  - **Pearson Correlation Matrix**: Calculates linear relationships ($|r| > 0.7$) across numerical fields.
-  - **Class Imbalance & Skewness Profiling**: Detects skewed distributions ($|skew| > 2$) and binary class imbalances.
-- **🔮 Prediction Studio (AutoML Lite)**: On-demand target forecasting using scaled features (`StandardScaler`), model cross-validation ($R^2$ / Accuracy scoring), and feature importance driver extraction.
-- **📄 Instant Dual Export Options**:
-  - 🌐 **Interactive HTML Report**: In-browser responsive report with Plotly.js chart interactions.
-  - 📄 **Standalone PDF Report**: Sub-second pure-Python PDF rendering (`fpdf2` + `matplotlib`) with embedded chart figures.
-- **🛍️ Built-in Sample Datasets**: Includes pre-configured datasets for Retail Sales, HR Analytics, and Customer Churn.
+<p align="center">
+  <a href="https://github.com/HARIHRITHIK/ai-business-intelligence-studio/actions/workflows/ci.yml"><img src="https://github.com/HARIHRITHIK/ai-business-intelligence-studio/actions/workflows/ci.yml/badge.svg" alt="CI Pipeline" /></a>
+  <img src="https://img.shields.io/badge/Python-3.11+-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python" />
+  <img src="https://img.shields.io/badge/FastAPI-0.115+-009688?style=flat-square&logo=fastapi&logoColor=white" alt="FastAPI" />
+  <img src="https://img.shields.io/badge/React-18.2-61DAFB?style=flat-square&logo=react&logoColor=black" alt="React" />
+  <img src="https://img.shields.io/badge/Vite-5.4-646CFF?style=flat-square&logo=vite&logoColor=white" alt="Vite" />
+  <img src="https://img.shields.io/badge/License-MIT-22c55e?style=flat-square" alt="License" />
+</p>
 
 ---
 
-## 🏗️ Technical Architecture
+## 🎯 Target Roles & Competencies
+
+- **Primary**: **Data Scientist**, **ML Engineer**, **Python Developer**
+- **Secondary**: **AI Engineer**, **Software Engineer**, **Backend Developer**
+
+---
+
+## 💡 Why This Project?
+
+Traditional BI platforms are passive dashboards displaying charts that non-technical stakeholders struggle to interpret. **AI Business Intelligence Studio** was engineered as an active **AI Analyst**:
+
+1. Ingests structured business datasets (CSV or Excel).
+2. Computes an automated **Data Quality Score (0–100)** and profiles every column.
+3. Discovers statistical anomalies, trends, and correlations across all dimensions.
+4. Immediately prioritizes and surfaces the **Top 3 Findings** in plain English.
+5. Trains an **AutoML Lite** predictive model to identify key metric drivers.
+6. Generates a standalone **visual PDF report** rendered entirely in pure Python.
+
+---
+
+## 🚀 Instant 1-Click Demo Experience
+
+Recruiters and evaluators can explore the platform immediately without uploading their own data:
+
+- 🛍️ **Retail Sales** (~800 records): Regional performance, product category margins, holiday seasonal spikes, and revenue trends.
+- 👥 **HR Analytics** (~400 records): Departmental turnover, salary disparities, tenure correlation, and attrition patterns.
+- 📊 **Customer Churn** (~700 records): Contract type retention, support ticket correlation, and customer tenure drivers.
+
+---
+
+## ✨ Core Analytical Features
+
+- **🚀 Top Findings First**: Evaluates statistical significance and surfaces the top 3 high-impact patterns immediately upon ingestion.
+- **📈 Comprehensive Statistical Discovery**:
+  - **Z-Score Anomaly Detection**: Identifies outliers exceeding $|z| > 3$ thresholds.
+  - **Pearson Linear Correlation**: Evaluates relationships across all numerical pairs ($|r| > 0.70$).
+  - **Segment Dominance Analysis**: Flags categories driving disproportionate metric concentration.
+  - **Distribution Skewness & Class Imbalance**: Measures distribution moments ($|\text{skew}| > 2.0$) and binary imbalance ($\ge 70/30$).
+- **🔮 Prediction Studio (AutoML Lite)**:
+  - Automatically identifies task type (**Regression** vs. **Classification**).
+  - Preprocesses data via median/mode imputation, `LabelEncoder`, and `StandardScaler`.
+  - Evaluates cross-validated models (`Ridge`, `LogisticRegression`, `RandomForest`).
+  - Returns ranked feature importances and plain-English driver attribution.
+- **📄 Sub-Second Dual Export**:
+  - 🌐 **Interactive HTML Report**: Responsive browser report with Plotly.js chart interactions.
+  - 📄 **Standalone PDF Report**: Pure-Python Matplotlib/FPDF2 export embedding crisp chart graphics in sub-second time.
+
+---
+
+## 🏗️ Architecture & Data Flow
 
 ```
-┌──────────────────────────────────────────────────────────┐
-│                   React + Vite SPA                       │
-│  - Glassmorphic UI & Animated background design system   │
-│  - Top Findings & Categorized Insight Cards              │
-│  - Plotly.js Interactive Evidence Visualizations         │
-│  - Prediction Studio & Executive Recommendation Engine   │
-└────────────────────────────┬─────────────────────────────┘
-                             │ REST API (JSON)
-┌────────────────────────────▼─────────────────────────────┐
-│                    FastAPI Backend                       │
-│  /api/upload               /api/overview/{session_id}   │
-│  /api/samples/{name}       /api/insights/{session_id}   │
-│  /api/charts/{session_id}  /api/recommendations/...     │
-│  /api/predict/{session_id} /api/report/html|pdf/...     │
-└────────────────────────────┬─────────────────────────────┘
-                             │
-     ┌───────────────────────┼───────────────────────┐
-     ▼                       ▼                       ▼
-Data Profiler             Insight Engine           Report Generator
-(Pandas / Scipy)       (NLG & Math Profiler)     (fpdf2 / Matplotlib)
+┌───────────────────────────────────────────────────────────────┐
+│                       React + Vite SPA                        │
+│  - Glassmorphic Dark Design System (#080d1a Palette)          │
+│  - Interactive Column Profiler Drawer & Full Data Preview     │
+│  - Plotly.js Visualizations & Active Scroll-Spy Sidebar       │
+│  - AutoML Driver Studio & Instant PDF Export Trigger          │
+└───────────────────────────────┬───────────────────────────────┘
+                                │ REST API (JSON)
+┌───────────────────────────────▼───────────────────────────────┐
+│                        FastAPI Backend                        │
+│  /api/upload                 /api/overview/{session_id}       │
+│  /api/samples/{name}         /api/insights/{session_id}       │
+│  /api/charts/{session_id}    /api/recommendations/...         │
+│  /api/predict/{session_id}   /api/report/html|pdf/...         │
+└───────────────────────────────┬───────────────────────────────┘
+                                │
+        ┌───────────────────────┼───────────────────────┐
+        ▼                       ▼                       ▼
+   Data Profiler         Insight Engine          Report Generator
+(Role Inference,       (Z-Scores, Pearson,     (Pure-Python Matplotlib
+Quality Score, Stats)   Segment Dominance)        + FPDF2 Engine)
 ```
 
 ---
 
-## 🛠️ Technology Stack
+## ⚖️ Engineering Decisions & Trade-Offs
 
-| Layer | Technology |
-| :--- | :--- |
-| **Frontend** | React 18, Vite, Axios, Plotly.js, React-Dropzone, CSS Custom Properties |
-| **Backend** | Python 3.11, FastAPI, Uvicorn, Pandas, Scikit-Learn, SciPy, Jinja2 |
-| **Export Engine** | `fpdf2` (PDF Document Layout), `matplotlib` (Pure-Python Chart Rendering) |
-| **Styling** | Custom Glassmorphic Dark Design System (`#080d1a` Palette, Inter & Fira Code) |
+| Decision | Alternative Considered | Rationale |
+| :--- | :--- | :--- |
+| **Pure-Python PDF Engine** | Headless Chrome (Kaleido / Puppeteer / WeasyPrint) | Headless browsers consume ~400MB per render and frequently crash in container environments. A custom Matplotlib Agg backend streams PNG buffers directly into FPDF2 with zero external C-dependencies in sub-second time. |
+| **Interpretable AutoML Lite** | Deep Neural Networks / AutoGluon | Tabular business datasets (100–10,000 rows) require fast, interpretable drivers rather than black-box models. Constrained ensemble trees (`max_depth=6`) prevent overfitting and deliver instant results. |
+| **Ephemeral In-Memory Cache** | PostgreSQL / MongoDB | For rapid ad-hoc dataset analysis without authentication barriers, in-memory sessions with background 2-hour TTL cleanup provide high speed with zero database overhead. |
 
 ---
 
-## 📂 Project Structure
+## 📂 Repository Structure
 
 ```
-Business Intelligence Studio/
+ai-business-intelligence-studio/
+├── .github/
+│   └── workflows/
+│       └── ci.yml              # GitHub Actions automated test & build pipeline
 ├── backend/
 │   ├── api/
-│   │   └── routes.py           # FastAPI REST API endpoints
+│   │   └── routes.py           # FastAPI REST endpoints & session store
 │   ├── core/
-│   │   ├── profiler.py         # Data quality scoring & role detection
-│   │   ├── insight_engine.py   # Statistical pattern discovery algorithms
+│   │   ├── profiler.py         # Column role inference & quality scoring
+│   │   ├── insight_engine.py   # Statistical discovery algorithms
 │   │   ├── nlg.py              # Natural Language Generation engine
-│   │   ├── chart_builder.py    # Plotly visualization builder
+│   │   ├── chart_builder.py    # Plotly interactive chart specifications
 │   │   ├── predictor.py        # AutoML pipeline & feature importance
-│   │   └── reporter.py         # HTML & pure-Python PDF report generators
-│   ├── data/
-│   │   └── samples/            # Retail Sales, HR Analytics, Churn CSVs
-│   ├── main.py                 # App entry point & static file server
-│   ├── requirements.txt        # Python dependencies
-│   └── Procfile                # Deployment configuration
+│   │   └── reporter.py         # Pure-Python PDF & HTML report generator
+│   ├── data/samples/           # Retail Sales, HR Analytics, Churn CSVs
+│   ├── tests/
+│   │   ├── test_api.py         # End-to-end API integration tests
+│   │   └── test_core.py        # Profiler, insight, and predictor unit tests
+│   ├── main.py                 # FastAPI application & SPA static server
+│   ├── requirements.txt        # Pinned Python dependencies
+│   └── Procfile                # Render deployment configuration
 ├── frontend/
 │   ├── src/
-│   │   ├── components/         # TopFindings, EvidenceChart, PredictionStudio...
-│   │   ├── hooks/              # useAnalysis state orchestrator
-│   │   ├── styles/             # Design tokens, glassmorphism, keyframe animations
-│   │   └── utils/              # Axios API client
-│   ├── package.json            # Node dependencies
-│   └── vite.config.js          # Vite build config
+│   │   ├── components/         # TopFindings, DataOverview, PredictionStudio...
+│   │   ├── hooks/useAnalysis.js # Reactive API state orchestrator
+│   │   └── styles/             # Design tokens & glassmorphism system
+│   ├── package.json            # Node.js dependencies
+│   └── vite.config.js          # Vite build & proxy configuration
+├── INTERVIEW_PREP.md           # Comprehensive technical interview guide
+├── LICENSE                     # MIT Open Source License
 └── README.md
 ```
 
 ---
 
-## 🚀 Quickstart & Local Setup
+## ⚡ Quickstart & Local Setup
 
 ### Prerequisites
-- Python 3.10+
+- Python 3.11+
 - Node.js 18+ (for frontend development)
 
-### Running the Application
+### 1. Clone & Navigate
+```bash
+git clone https://github.com/HARIHRITHIK/ai-business-intelligence-studio.git
+cd ai-business-intelligence-studio
+```
 
-FastAPI serves both the REST API and the compiled React production frontend at a single URL.
+### 2. Run Backend & Automated Tests
+```bash
+cd backend
+pip install -r requirements.txt
+pytest tests -v
+```
 
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/YOUR_USERNAME/business-intelligence-studio.git
-   cd business-intelligence-studio
-   ```
+### 3. Launch Application
+```bash
+python -m uvicorn main:app --reload --port 8050
+```
 
-2. **Set up the Python Environment**:
-   ```bash
-   cd backend
-   pip install -r requirements.txt
-   ```
-
-3. **Start the Application Server**:
-   ```bash
-   python -m uvicorn main:app --reload --port 8050
-   ```
-
-4. **Access in Browser**:
-   Open **`http://localhost:8050`**
+Open **`http://localhost:8050`** in your browser.
 
 ---
 
-## ☁️ Free Cloud Deployment (Render.com)
+## 📖 API Documentation
 
-This project is optimized for 100% free deployment on **Render**:
+FastAPI automatically generates interactive Swagger documentation available at:
+- **Swagger UI**: `http://localhost:8050/docs`
+- **ReDoc**: `http://localhost:8050/redoc`
 
-1. Push your repository to GitHub.
-2. Log into [Render.com](https://render.com) and click **New +** -> **Web Service**.
-3. Connect your GitHub repository.
-4. Configure the Web Service settings:
-   - **Environment**: `Python 3`
-   - **Root Directory**: `backend`
-   - **Build Command**: 
-     ```bash
-     pip install -r requirements.txt
-     ```
-   - **Start Command**:
-     ```bash
-     uvicorn main:app --host 0.0.0.0 --port $PORT
-     ```
-5. Click **Create Web Service**. Your application will be live on Render's free URL!
+| Endpoint | Method | Description |
+| :--- | :--- | :--- |
+| `/health` | `GET` | Service status, API version, and active session count |
+| `/api/samples/{name}` | `POST` | Ingests preloaded sample (`retail_sales`, `hr_analytics`, `customer_churn`) |
+| `/api/upload` | `POST` | Uploads multipart CSV or Excel dataset (max 50MB) |
+| `/api/overview/{session_id}` | `GET` | Returns dataset shape, memory footprint, completeness, and column profiles |
+| `/api/insights/{session_id}` | `GET` | Returns ranked statistical findings with NLG explanations |
+| `/api/charts/{session_id}` | `GET` | Returns Plotly figure JSON configurations for visual evidence |
+| `/api/recommendations/{session_id}` | `GET` | Returns prioritized executive business recommendations |
+| `/api/predict/{session_id}` | `POST` | Executes AutoML feature importance model on selected target |
+| `/api/report/html/{session_id}` | `GET` | Renders interactive full-page HTML report |
+| `/api/report/pdf/{session_id}` | `GET` | Generates downloadable visual PDF report |
 
 ---
 
 ## 📄 License
 
-Distributed under the MIT License. See `LICENSE` for details.
+Distributed under the MIT License. See [`LICENSE`](LICENSE) for details.
