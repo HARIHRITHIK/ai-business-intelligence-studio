@@ -1,12 +1,6 @@
-# 📊 AI Business Intelligence Studio
+# AI Business Intelligence Studio
 
-> **An automated AI Analyst platform that ingests raw tabular business data and surfaces executive-level statistical insights, machine learning driver analysis, and publication-ready PDF reports in seconds.**
-
-<p align="center">
-  <a href="https://ai-business-intelligence-studio.onrender.com" target="_blank">
-    <img src="https://img.shields.io/badge/🌐_Live_Demo-ai--business--intelligence--studio.onrender.com-4f8ef7?style=for-the-badge" alt="Live Demo" />
-  </a>
-</p>
+> **An AI-assisted Business Intelligence and Data Science platform that transforms raw datasets into quality analysis, statistical insights, visualizations, predictive analysis, and actionable business findings.**
 
 <p align="center">
   <a href="https://github.com/HARIHRITHIK/ai-business-intelligence-studio/actions/workflows/ci.yml"><img src="https://github.com/HARIHRITHIK/ai-business-intelligence-studio/actions/workflows/ci.yml/badge.svg" alt="CI Pipeline" /></a>
@@ -19,66 +13,102 @@
 
 ---
 
-## 🎯 Target Roles & Competencies
+## 🚀 Live Demo
 
-- **Primary**: **Data Scientist**, **ML Engineer**, **Python Developer**
-- **Secondary**: **AI Engineer**, **Software Engineer**, **Backend Developer**
+> **Live Demo:** [ADD LIVE DEMO URL HERE]
+
+Explore the full application instantly using preloaded sample datasets (Retail Sales, HR Analytics, Customer Churn) with zero manual setup or file upload required.
+
+See [`DEMO.md`](DEMO.md) for a structured 2-minute recruiter walkthrough.
 
 ---
 
-## 💡 Why This Project?
+## 📸 Preview
 
-Traditional BI platforms are passive dashboards displaying charts that non-technical stakeholders struggle to interpret. **AI Business Intelligence Studio** was engineered as an active **AI Analyst**:
+| Full Intelligence Overview | Data Quality & Column Health |
+| :---: | :---: |
+| ![BI Dashboard](assets/screenshots/dashboard.png) | ![Data Quality](assets/screenshots/data-quality.png) |
 
+| Prediction Studio (AutoML Lite) | Business Insights & Strategic Recommendations |
+| :---: | :---: |
+| ![Prediction Studio](assets/screenshots/prediction-studio.png) | ![Business Insights](assets/screenshots/business-insights.png) |
+
+> ℹ️ *To update screenshots, upload your images directly to [`assets/screenshots/`](assets/screenshots/) using the filenames listed in [`assets/screenshots/README.md`](assets/screenshots/README.md).*
+
+---
+
+## Problem
+
+Traditional Business Intelligence dashboards are passive grids of charts. They require business stakeholders to manually inspect dozens of graphs, spot anomalies, and interpret what the numbers mean. For non-technical executives, product managers, and founders, this creates a bottleneck between raw data collection and strategic action.
+
+---
+
+## Solution
+
+**AI Business Intelligence Studio** acts as an active **AI Analyst**:
 1. Ingests structured business datasets (CSV or Excel).
-2. Computes an automated **Data Quality Score (0–100)** and profiles every column.
-3. Discovers statistical anomalies, trends, and correlations across all dimensions.
-4. Immediately prioritizes and surfaces the **Top 3 Findings** in plain English.
-5. Trains an **AutoML Lite** predictive model to identify key metric drivers.
-6. Generates a standalone **visual PDF report** rendered entirely in pure Python.
+2. Computes an automated **Data Quality Score (0–100)** and profiles column distributions.
+3. Automatically executes statistical discovery tests across all dimensions.
+4. Synthesizes and prioritizes the **Top 3 Findings** in plain English with strategic business takeaways.
+5. Runs **AutoML Lite** on user-selected targets to identify key metric drivers.
+6. Generates high-resolution **visual PDF and interactive HTML reports** on demand.
 
 ---
 
-## 🚀 Instant 1-Click Demo Experience
+## Key Features
 
-Recruiters and evaluators can explore the platform immediately without uploading their own data:
-
-- 🛍️ **Retail Sales** (~800 records): Regional performance, product category margins, holiday seasonal spikes, and revenue trends.
-- 👥 **HR Analytics** (~400 records): Departmental turnover, salary disparities, tenure correlation, and attrition patterns.
-- 📊 **Customer Churn** (~700 records): Contract type retention, support ticket correlation, and customer tenure drivers.
-
----
-
-## ✨ Core Analytical Features
-
-- **🚀 Top Findings First**: Evaluates statistical significance and surfaces the top 3 high-impact patterns immediately upon ingestion.
-- **📈 Comprehensive Statistical Discovery**:
-  - **Z-Score Anomaly Detection**: Identifies outliers exceeding $|z| > 3$ thresholds.
+- **🚀 Top Findings First**: Evaluates statistical significance and immediately surfaces the 3 most impactful findings upon dataset ingestion.
+- **🛡️ Automated Data Quality Scoring**: Formulates a 0–100 quality index assessing completeness, uniqueness, and column consistency.
+- **🔍 Interactive Column Profiler**: Clickable column inspection drawer detailing live statistical distributions (Mean, Median, Std Dev, Min/Max, Skewness, Top Categories).
+- **📈 Statistical Pattern Discovery**:
+  - **Z-Score Anomaly Detection**: Identifies statistical outliers exceeding $|z| > 3$ thresholds.
   - **Pearson Linear Correlation**: Evaluates relationships across all numerical pairs ($|r| > 0.70$).
-  - **Segment Dominance Analysis**: Flags categories driving disproportionate metric concentration.
-  - **Distribution Skewness & Class Imbalance**: Measures distribution moments ($|\text{skew}| > 2.0$) and binary imbalance ($\ge 70/30$).
+  - **Segment Dominance Analysis**: Identifies categories driving disproportionate metric volume.
+  - **Distribution Skewness & Class Imbalance**: Measures distribution asymmetry ($|\text{skew}| > 2.0$) and class dominance.
 - **🔮 Prediction Studio (AutoML Lite)**:
   - Automatically identifies task type (**Regression** vs. **Classification**).
-  - Preprocesses data via median/mode imputation, `LabelEncoder`, and `StandardScaler`.
+  - Preprocesses features via median/mode imputation, `LabelEncoder`, and `StandardScaler`.
   - Evaluates cross-validated models (`Ridge`, `LogisticRegression`, `RandomForest`).
-  - Returns ranked feature importances and plain-English driver attribution.
-- **📄 Sub-Second Dual Export**:
-  - 🌐 **Interactive HTML Report**: Responsive browser report with Plotly.js chart interactions.
-  - 📄 **Standalone PDF Report**: Pure-Python Matplotlib/FPDF2 export embedding crisp chart graphics in sub-second time.
+  - Ranks normalized feature importances and synthesizes plain-English driver attribution.
+- **📄 Sub-Second Report Generation**:
+  - 🌐 **Interactive HTML Report**: Responsive full-page report with Plotly.js chart interactions.
+  - 📄 **Standalone PDF Report**: Pure-Python Matplotlib/FPDF2 export with embedded chart graphics generated in sub-second time.
 
 ---
 
-## 🏗️ Architecture & Data Flow
+## Workflow
+
+```
+Dataset Ingestion
+       ↓
+Data Quality Scoring (0–100)
+       ↓
+Exploratory Profiling
+       ↓
+Statistical Insight Discovery
+       ↓
+Interactive Visualization
+       ↓
+Predictive Driver Modeling (AutoML)
+       ↓
+Actionable Business Findings
+       ↓
+Executive Report Export (HTML / PDF)
+```
+
+---
+
+## Architecture
 
 ```
 ┌───────────────────────────────────────────────────────────────┐
 │                       React + Vite SPA                        │
-│  - Glassmorphic Dark Design System (#080d1a Palette)          │
+│  - Glassmorphic Dark UI (#080d1a Design System)               │
 │  - Interactive Column Profiler Drawer & Full Data Preview     │
-│  - Plotly.js Visualizations & Active Scroll-Spy Sidebar       │
-│  - AutoML Driver Studio & Instant PDF Export Trigger          │
+│  - Plotly.js Visualizations & Active Scroll-Spy Navigation    │
+│  - AutoML Driver Studio & Instant PDF Export Triggers         │
 └───────────────────────────────┬───────────────────────────────┘
-                                │ REST API (JSON)
+                                │ REST API (JSON / Multipart)
 ┌───────────────────────────────▼───────────────────────────────┐
 │                        FastAPI Backend                        │
 │  /api/upload                 /api/overview/{session_id}       │
@@ -94,105 +124,95 @@ Recruiters and evaluators can explore the platform immediately without uploading
 Quality Score, Stats)   Segment Dominance)        + FPDF2 Engine)
 ```
 
+*For in-depth architectural details and data lifecycle flow, see [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md).*
+
 ---
 
-## ⚖️ Engineering Decisions & Trade-Offs
+## Data Science / ML Techniques
 
-| Decision | Alternative Considered | Rationale |
+| Component | Mathematical / Algorithmic Technique | Implementation |
 | :--- | :--- | :--- |
-| **Pure-Python PDF Engine** | Headless Chrome (Kaleido / Puppeteer / WeasyPrint) | Headless browsers consume ~400MB per render and frequently crash in container environments. A custom Matplotlib Agg backend streams PNG buffers directly into FPDF2 with zero external C-dependencies in sub-second time. |
-| **Interpretable AutoML Lite** | Deep Neural Networks / AutoGluon | Tabular business datasets (100–10,000 rows) require fast, interpretable drivers rather than black-box models. Constrained ensemble trees (`max_depth=6`) prevent overfitting and deliver instant results. |
-| **Ephemeral In-Memory Cache** | PostgreSQL / MongoDB | For rapid ad-hoc dataset analysis without authentication barriers, in-memory sessions with background 2-hour TTL cleanup provide high speed with zero database overhead. |
+| **Data Quality Index** | Weighted composite: $0.50 \times \text{Completeness} + 0.30 \times \text{Uniqueness} + 0.20 \times \text{Consistency}$ | `core/profiler.py` |
+| **Anomaly Detection** | Standardized Z-Score thresholding ($z = \frac{x - \mu}{\sigma}$, threshold $|z| > 3.0$) | `core/insight_engine.py` |
+| **Correlation Analysis** | Pearson product-moment correlation coefficient matrix ($|r| > 0.70$) | `core/insight_engine.py` |
+| **Distribution Skewness** | Adjusted Fisher-Pearson standardized moment coefficient ($|\text{skew}| > 2.0$) | `core/insight_engine.py` |
+| **Feature Preprocessing** | Standard feature scaling ($\mu = 0, \sigma = 1$), label encoding, median/mode imputation | `core/predictor.py` |
+| **Model Selection** | Cross-validated comparison between regularized linear/logistic models and constrained tree ensembles | `core/predictor.py` |
+| **Driver Attribution** | Gini impurity decrease & normalized feature coefficient weights | `core/predictor.py` |
 
 ---
 
-## 📂 Repository Structure
+## Technology Stack
 
-```
-ai-business-intelligence-studio/
-├── .github/
-│   └── workflows/
-│       └── ci.yml              # GitHub Actions automated test & build pipeline
-├── backend/
-│   ├── api/
-│   │   └── routes.py           # FastAPI REST endpoints & session store
-│   ├── core/
-│   │   ├── profiler.py         # Column role inference & quality scoring
-│   │   ├── insight_engine.py   # Statistical discovery algorithms
-│   │   ├── nlg.py              # Natural Language Generation engine
-│   │   ├── chart_builder.py    # Plotly interactive chart specifications
-│   │   ├── predictor.py        # AutoML pipeline & feature importance
-│   │   └── reporter.py         # Pure-Python PDF & HTML report generator
-│   ├── data/samples/           # Retail Sales, HR Analytics, Churn CSVs
-│   ├── tests/
-│   │   ├── test_api.py         # End-to-end API integration tests
-│   │   └── test_core.py        # Profiler, insight, and predictor unit tests
-│   ├── main.py                 # FastAPI application & SPA static server
-│   ├── requirements.txt        # Pinned Python dependencies
-│   └── Procfile                # Render deployment configuration
-├── frontend/
-│   ├── src/
-│   │   ├── components/         # TopFindings, DataOverview, PredictionStudio...
-│   │   ├── hooks/useAnalysis.js # Reactive API state orchestrator
-│   │   └── styles/             # Design tokens & glassmorphism system
-│   ├── package.json            # Node.js dependencies
-│   └── vite.config.js          # Vite build & proxy configuration
-├── INTERVIEW_PREP.md           # Comprehensive technical interview guide
-├── LICENSE                     # MIT Open Source License
-└── README.md
-```
+- **Backend**: Python 3.11, FastAPI (ASGI), Uvicorn, Pandas, NumPy, SciPy, Scikit-Learn
+- **Reporting Engine**: Matplotlib (Headless Agg backend), FPDF2, Jinja2
+- **Frontend**: React 18, Vite, Plotly.js, Axios, React-Dropzone, CSS Custom Properties
+- **Testing & CI/CD**: Pytest, GitHub Actions
 
 ---
 
-## ⚡ Quickstart & Local Setup
+## Sample Use Case
 
-### Prerequisites
-- Python 3.11+
-- Node.js 18+ (for frontend development)
+### HR Analytics Dataset (~400 employees)
+1. **Quality Check**: Instant 100/100 quality score confirming complete records across 10 columns.
+2. **Top Finding Surfaced**: *"Sales accounts for 35% of total attrition despite representing only 22% of headcount."*
+3. **Correlation Detected**: Strong negative correlation between `Tenure_Years` and `Attrition`.
+4. **Prediction Studio**: Targeting `Attrition` trains a classification model identifying `Monthly_Income` and `Overtime_Hours` as the primary key drivers.
+5. **Report Delivery**: 1-click generation of a 3-page executive PDF report with embedded distribution charts.
 
-### 1. Clone & Navigate
-```bash
-git clone https://github.com/HARIHRITHIK/ai-business-intelligence-studio.git
-cd ai-business-intelligence-studio
-```
+---
 
-### 2. Run Backend & Automated Tests
+## Testing
+
+The project includes an automated test suite verifying core business logic and REST endpoints:
+
 ```bash
 cd backend
-pip install -r requirements.txt
 pytest tests -v
 ```
 
-### 3. Launch Application
-```bash
-python -m uvicorn main:app --reload --port 8050
-```
+- **`backend/tests/test_core.py`**: Unit tests for `DataProfiler`, `InsightEngine`, `AutoMLPredictor`, and pure-Python `ReportGenerator`.
+- **`backend/tests/test_api.py`**: Integration tests verifying `/health`, sample loaders, upload validation, prediction, and PDF export.
 
-Open **`http://localhost:8050`** in your browser.
+Continuous integration is automated via GitHub Actions on every push and pull request.
 
 ---
 
-## 📖 API Documentation
+## Deployment
 
-FastAPI automatically generates interactive Swagger documentation available at:
-- **Swagger UI**: `http://localhost:8050/docs`
-- **ReDoc**: `http://localhost:8050/redoc`
+The application is structured for lightweight deployment on free-tier cloud platforms (e.g., Render, Railway):
 
-| Endpoint | Method | Description |
-| :--- | :--- | :--- |
-| `/health` | `GET` | Service status, API version, and active session count |
-| `/api/samples/{name}` | `POST` | Ingests preloaded sample (`retail_sales`, `hr_analytics`, `customer_churn`) |
-| `/api/upload` | `POST` | Uploads multipart CSV or Excel dataset (max 50MB) |
-| `/api/overview/{session_id}` | `GET` | Returns dataset shape, memory footprint, completeness, and column profiles |
-| `/api/insights/{session_id}` | `GET` | Returns ranked statistical findings with NLG explanations |
-| `/api/charts/{session_id}` | `GET` | Returns Plotly figure JSON configurations for visual evidence |
-| `/api/recommendations/{session_id}` | `GET` | Returns prioritized executive business recommendations |
-| `/api/predict/{session_id}` | `POST` | Executes AutoML feature importance model on selected target |
-| `/api/report/html/{session_id}` | `GET` | Renders interactive full-page HTML report |
-| `/api/report/pdf/{session_id}` | `GET` | Generates downloadable visual PDF report |
+1. **Root Directory**: `backend`
+2. **Build Command**: `pip install -r requirements.txt`
+3. **Start Command**: `uvicorn main:app --host 0.0.0.0 --port $PORT`
+
+FastAPI automatically serves the compiled React production bundle (`backend/dist`) as static assets with a fallback SPA router.
 
 ---
 
-## 📄 License
+## Limitations
+
+- **In-Memory Session Store**: Sessions are stored in RAM with a 2-hour TTL cleaner. Scaling horizontally across multiple worker nodes would require an external cache (e.g., Redis).
+- **Tabular Focus**: Designed specifically for structured tabular data (CSV/Excel) rather than unstructured text or image datasets.
+- **Deterministic NLG**: Narrative generation uses statistical template synthesis rather than external LLM APIs, ensuring zero runtime cost and instant execution.
+
+---
+
+## Future Improvements
+
+- [ ] Automated multi-period time-series forecasting (ARIMA / Exponential Smoothing).
+- [ ] Exporting cleaned datasets and summary profiling metrics to CSV/JSON.
+- [ ] Redis session adapter for multi-container deployment clusters.
+- [ ] Optional natural language query interface for ad-hoc dataset questions.
+
+---
+
+## Technical Interview Concepts
+
+For complete technical interview preparation, formulas, and model answers to top technical questions, see [`INTERVIEW_PREP.md`](INTERVIEW_PREP.md).
+
+---
+
+## License
 
 Distributed under the MIT License. See [`LICENSE`](LICENSE) for details.
