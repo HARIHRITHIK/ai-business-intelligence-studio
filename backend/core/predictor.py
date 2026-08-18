@@ -103,9 +103,7 @@ class AutoMLPredictor:
                 continue
                 
         if best_model is None:
-            best_model_name = "Random Forest"
-            best_model = RandomForestClassifier(n_estimators=25, max_depth=6) if is_classification else RandomForestRegressor(n_estimators=25, max_depth=6)
-            best_score = 0.75
+            raise ValueError("Unable to evaluate predictive model: insufficient target variation or sample size.")
             
         best_model.fit(X_scaled, y)
         
@@ -142,10 +140,10 @@ class AutoMLPredictor:
             )
             
         # Build plain English summary
-        score_display = max(0.0, min(1.0, best_score if not np.isinf(best_score) else 0.8))
+        score_display = max(0.0, min(1.0, best_score)) if not (np.isinf(best_score) or np.isnan(best_score)) else 0.0
         plain_english = (
             f"We can forecast {target_col.replace('_', ' ')} with "
-            f"{score_display * 100:.0f}% confidence using {best_model_name}."
+            f"{score_display * 100:.0f}% confidence ({metric_name}) using {best_model_name}."
         )
         if len(top_features) >= 2:
             plain_english += (

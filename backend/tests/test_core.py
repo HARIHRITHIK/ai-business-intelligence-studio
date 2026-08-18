@@ -50,6 +50,13 @@ def test_data_profiler_roles_and_quality(sample_df):
     assert 'Revenue' in profile['column_profiles']
     assert 'mean' in profile['column_profiles']['Revenue']
 
+def test_data_profiler_empty_df():
+    profiler = DataProfiler()
+    profile = profiler.profile(pd.DataFrame())
+    assert profile['rows'] == 0
+    assert profile['columns'] == 0
+    assert profile['quality_score'] == 0
+
 def test_insight_engine_discovery(sample_df):
     profiler = DataProfiler()
     profile = profiler.profile(sample_df)
@@ -96,6 +103,17 @@ def test_automl_predictor_classification(sample_df):
     assert result['metric_value'] is not None
     assert len(result['feature_importances']) > 0
     assert result['best_model'] in ['Logistic Regression', 'Random Forest']
+
+def test_automl_predictor_invalid_target(sample_df):
+    predictor = AutoMLPredictor()
+    with pytest.raises(ValueError, match="not found"):
+        predictor.predict(sample_df, target_col='NonExistentColumn')
+
+def test_automl_predictor_all_null_target():
+    df = pd.DataFrame({'Feature1': [1, 2, 3], 'Target': [np.nan, np.nan, np.nan]})
+    predictor = AutoMLPredictor()
+    with pytest.raises(ValueError, match="no valid non-null"):
+        predictor.predict(df, target_col='Target')
 
 def test_chart_builder_and_pdf_generation(sample_df):
     profiler = DataProfiler()

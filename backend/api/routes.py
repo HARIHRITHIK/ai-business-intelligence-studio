@@ -75,16 +75,33 @@ async def upload_file(file: UploadFile = File(...)):
         raise HTTPException(status_code=400, detail="Only CSV and Excel files are supported")
         
     try:
-        content = await file.read()
-        if len(content) > 50 * 1024 * 1024:
-            raise HTTPException(status_code=400, detail="File too large (max 50MB)")
+        max_size = 50 * 1024 * 1024  # 50MB
+        chunks = []
+        bytes_read = 0
+        while True:
+            chunk = await file.read(1024 * 1024)  # 1MB chunk
+            if not chunk:
+                break
+            bytes_read += len(chunk)
+            if bytes_read > max_size:
+                raise HTTPException(status_code=400, detail="File too large (max 50MB)")
+            chunks.append(chunk)
             
+        content = b"".join(chunks)
+        if not content:
+            raise HTTPException(status_code=400, detail="Uploaded file is empty")
+
         if file.filename.endswith('.csv'):
             df = pd.read_csv(io.BytesIO(content))
         else:
             df = pd.read_excel(io.BytesIO(content))
             
+        if df.empty:
+            raise HTTPException(status_code=400, detail="Uploaded dataset contains no data rows")
+            
         return process_dataframe(df, file.filename)
+    except HTTPException:
+        raise
     except Exception as e:
         raise HTTPException(status_code=400, detail=f"Error processing file: {str(e)}")
 

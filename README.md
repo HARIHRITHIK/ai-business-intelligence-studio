@@ -207,12 +207,6 @@ FastAPI automatically serves the compiled React production bundle (`backend/dist
 
 ---
 
-## Technical Interview Concepts
-
-For complete technical interview preparation, formulas, and model answers to top technical questions, see [`INTERVIEW_PREP.md`](INTERVIEW_PREP.md).
-
----
-
 ## License
 
 Distributed under the MIT License. See [`LICENSE`](LICENSE) for details.
