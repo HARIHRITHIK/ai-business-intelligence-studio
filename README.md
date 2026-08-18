@@ -132,11 +132,11 @@ Quality Score, Stats)   Segment Dominance)        + FPDF2 Engine)
 
 | Component | Mathematical / Algorithmic Technique | Implementation |
 | :--- | :--- | :--- |
-| **Data Quality Index** | Weighted composite: $0.50 \times \text{Completeness} + 0.30 \times \text{Uniqueness} + 0.20 \times \text{Consistency}$ | `core/profiler.py` |
-| **Anomaly Detection** | Standardized Z-Score thresholding ($z = \frac{x - \mu}{\sigma}$, threshold $|z| > 3.0$) | `core/insight_engine.py` |
-| **Correlation Analysis** | Pearson product-moment correlation coefficient matrix ($|r| > 0.70$) | `core/insight_engine.py` |
-| **Distribution Skewness** | Adjusted Fisher-Pearson standardized moment coefficient ($|\text{skew}| > 2.0$) | `core/insight_engine.py` |
-| **Feature Preprocessing** | Standard feature scaling ($\mu = 0, \sigma = 1$), label encoding, median/mode imputation | `core/predictor.py` |
+| **Data Quality Index** | Weighted composite: `0.50 × Completeness + 0.30 × Uniqueness + 0.20 × Consistency` | `core/profiler.py` |
+| **Anomaly Detection** | Standardized Z-Score thresholding (`z = (x - μ) / σ`, threshold `\|z\| > 3.0`) | `core/insight_engine.py` |
+| **Correlation Analysis** | Pearson product-moment correlation coefficient matrix (`\|r\| > 0.70`) | `core/insight_engine.py` |
+| **Distribution Skewness** | Adjusted Fisher-Pearson standardized moment coefficient (`\|skew\| > 2.0`) | `core/insight_engine.py` |
+| **Feature Preprocessing** | Standard feature scaling (`StandardScaler`), label encoding, median/mode imputation | `core/predictor.py` |
 | **Model Selection** | Cross-validated comparison between regularized linear/logistic models and constrained tree ensembles | `core/predictor.py` |
 | **Driver Attribution** | Gini impurity decrease & normalized feature coefficient weights | `core/predictor.py` |
 
