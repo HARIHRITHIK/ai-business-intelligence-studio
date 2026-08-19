@@ -25,7 +25,7 @@
 
 Explore the full application instantly using preloaded sample datasets (Retail Sales, HR Analytics, Customer Churn) with zero manual setup or file upload required.
 
-See [`DEMO.md`](DEMO.md) for a structured 2-minute recruiter walkthrough.
+See [`DEMO.md`](DEMO.md) for a 2-minute feature walkthrough.
 
 ---
 

@@ -1,8 +1,8 @@
-# 2-Minute Recruiter Demo
+# 2-Minute Quickstart & Feature Demo
 
 > **Live Demo:** [https://ai-business-intelligence-studio.onrender.com](https://ai-business-intelligence-studio.onrender.com)
 
-Follow this structured 2-minute walkthrough to evaluate the complete end-to-end capabilities of the **AI Business Intelligence Studio**.
+Follow this structured 2-minute walkthrough to explore the complete end-to-end analytical workflow of the **AI Business Intelligence Studio**.
 
 ---
 
@@ -50,7 +50,7 @@ Scroll to **Export Report**:
 
 ---
 
-## 🎯 Key Takeaways for Evaluators
+## 🎯 Key Architectural Highlights
 - **Proactive AI Analyst**: Prioritizes executive-ready insights over passive chart grids.
 - **Genuine Applied Statistics**: Powered by real mathematical tests ($z$-score anomaly detection, Pearson correlation matrix, skewness profiling).
 - **Fast & Reliable**: Fast CPU-based execution with zero external runtime dependencies.
