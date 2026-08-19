@@ -33,8 +33,6 @@ See [`DEMO.md`](DEMO.md) for a structured 2-minute recruiter walkthrough.
 | :---: | :---: |
 | ![Prediction Studio](assets/screenshots/prediction-studio.png) | ![Business Insights](assets/screenshots/business-insights.png) |
 
-> ℹ️ *To update screenshots, upload your images directly to [`assets/screenshots/`](assets/screenshots/) using the filenames listed in [`assets/screenshots/README.md`](assets/screenshots/README.md).*
-
 ---
 
 ## Problem
