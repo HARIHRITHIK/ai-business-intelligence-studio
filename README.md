@@ -3,6 +3,12 @@
 > **An AI-assisted Business Intelligence and Data Science platform that transforms raw datasets into quality analysis, statistical insights, visualizations, predictive analysis, and actionable business findings.**
 
 <p align="center">
+  <a href="https://ai-business-intelligence-studio.onrender.com" target="_blank">
+    <img src="https://img.shields.io/badge/🌐_Live_Demo-ai--business--intelligence--studio.onrender.com-4f8ef7?style=for-the-badge" alt="Live Demo" />
+  </a>
+</p>
+
+<p align="center">
   <a href="https://github.com/HARIHRITHIK/ai-business-intelligence-studio/actions/workflows/ci.yml"><img src="https://github.com/HARIHRITHIK/ai-business-intelligence-studio/actions/workflows/ci.yml/badge.svg" alt="CI Pipeline" /></a>
   <img src="https://img.shields.io/badge/Python-3.11+-3776AB?style=flat-square&logo=python&logoColor=white" alt="Python" />
   <img src="https://img.shields.io/badge/FastAPI-0.115+-009688?style=flat-square&logo=fastapi&logoColor=white" alt="FastAPI" />
@@ -15,7 +21,7 @@
 
 ## 🚀 Live Demo
 
-> **Live Demo:** [ADD LIVE DEMO URL HERE]
+> **Live Demo:** [https://ai-business-intelligence-studio.onrender.com](https://ai-business-intelligence-studio.onrender.com)
 
 Explore the full application instantly using preloaded sample datasets (Retail Sales, HR Analytics, Customer Churn) with zero manual setup or file upload required.
 

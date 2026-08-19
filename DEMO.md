@@ -1,6 +1,6 @@
 # 2-Minute Recruiter Demo
 
-> **Live Demo:** [ADD LIVE DEMO URL HERE]
+> **Live Demo:** [https://ai-business-intelligence-studio.onrender.com](https://ai-business-intelligence-studio.onrender.com)
 
 Follow this structured 2-minute walkthrough to evaluate the complete end-to-end capabilities of the **AI Business Intelligence Studio**.
 
